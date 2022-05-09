@@ -10,11 +10,18 @@ from custom_util import get_live_bitcoin_price, convert_date_to_text
 from database_connection import DatabaseConnection
 
 # TODO (3.1): define FastAPI app
+app = FastAPI()
 
 # TODO (5.4.1): define database connection
 
 
 # TODO (3.2): add CORS middleware
+
+# TODO: a root function to test if server is running
+@app.get("/")
+async def root():
+    content = {"message":"Hello World! This is a bitcoin monitoring service!"}
+    return json.dumps(content)
 
 
 # TODO (3.1)
