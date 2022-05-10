@@ -4,17 +4,24 @@ from constants import DATABASE_NAME, TABLE_NAME, BITCOIN_CURRENT_PRICE_URL
 from datetime import datetime
 import requests
 
+
 # TODO (5.1) 
 def get_live_bitcoin_price():
-    """
-    gets live price of bitcoin from bitcoin open API
+   # make get request
+    response = requests.get(BITCOIN_CURRENT_PRICE_URL )
 
-    :return:
-        the price in USD
-    :rtype:
-        float
-    """
-    pass
+# check if respons status code is 200
+    if response.status_code == 200:
+
+    # get response body in text
+        print(response.text)
+    # convert response body to JSON
+        data = response.json()
+        print('Bitcoin Price in USD' + data['bpi']['USD']['rate'])
+
+# otherwise, return -1
+    else: 
+        return -1
 
 def create_database():
     """

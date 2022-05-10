@@ -1,4 +1,5 @@
 from sqlite3 import Error
+from backend.constants import DATABASE_NAME
 from constants import TABLE_NAME
 from bitcoin_timestamp import BitcoinTimestamp
 from custom_util import create_database
@@ -56,23 +57,27 @@ class DatabaseConnection:
             list[BitcoinTimestamp]
         """
         try:
-            output = []
-            
+            db = sqlite3.connect(DATABASE_NAME)
+        except Error as e: 
+            print(e)
             # TODO (5.3.1)
             # get cursor
-            
-            
+            cursor = db.cursor()
+
             # insert sql query
-             
+            sql = "SELECT * FROM '{}';".format(TABLE_NAME)
 
             # execute sql query
-           
+            cursor.execute(sql)
 
             # fetch all results obtained
+            results = cursor.fetchall()
             
             # close
+            cursor.close()
 
             # convert results to BitcoinTimestamp objects and append to output
+            
 
             return output
         except Error as e:
