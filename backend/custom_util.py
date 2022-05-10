@@ -8,7 +8,8 @@ import requests
 # TODO (5.1) 
 def get_live_bitcoin_price():
    # make get request
-    response = requests.get(BITCOIN_CURRENT_PRICE_URL )
+
+    response = requests.get(BITCOIN_CURRENT_PRICE_URL)
 
 # check if respons status code is 200
     if response.status_code == 200:
@@ -16,12 +17,13 @@ def get_live_bitcoin_price():
     # get response body in text
         print(response.text)
     # convert response body to JSON
-        data = response.json()
-        print('Bitcoin Price in USD' + data['bpi']['USD']['rate'])
+        data = response.json() 
+        return(float(data['bpi']['USD']['rate'].replace(',','')))
+
 
 # otherwise, return -1
     else: 
-        return -1
+        return (-1)
 
 def create_database():
     """

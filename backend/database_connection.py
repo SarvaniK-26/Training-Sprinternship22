@@ -1,5 +1,4 @@
-from sqlite3 import Error
-from backend.constants import DATABASE_NAME
+from sqlite3 import Error, Timestamp
 from constants import TABLE_NAME
 from bitcoin_timestamp import BitcoinTimestamp
 from custom_util import create_database
@@ -25,24 +24,27 @@ class DatabaseConnection:
         :rtype:
             bool
         """
-        try:
-            # get cursor
-            cursor = self.__db.cursor()
-        except Error as e:
-            print(e)
-            return False
 
         try:
+            cursor = self.__db.cursor()
             # TODO (5.3.2)  
             # insert sql query
+            # curly braces as place holders
+            # for VALUES need parentheses
+            sql = "INSERT INTO '{}' (timestamp, price) VALUES('{}', '{}');".format(TABLE_NAME,bitcoin.timestamp,bitcoin.price)
 
             # execute sql query
+          
+            cursor.execute(sql)
 
+        
             # commit to db
+            self.__db.commit()
 
             # close
-
+            cursor.close()
             return True
+
         except Exception as e:
             print(e)
             return False
@@ -50,21 +52,17 @@ class DatabaseConnection:
     def get_all_timestampes(self):
         """
         gets all bitcoin timestamps in the database
-
         :return:
             a list of bitcoin timestamps
         :rtype:
             list[BitcoinTimestamp]
         """
         try:
-            db = sqlite3.connect(DATABASE_NAME)
-        except Error as e: 
-            print(e)
+            output = []
             # TODO (5.3.1)
-            # get cursor
-            cursor = db.cursor()
+            cursor = self.__db.cursor()
 
-            # insert sql query
+            # selects all of the data 
             sql = "SELECT * FROM '{}';".format(TABLE_NAME)
 
             # execute sql query
@@ -77,9 +75,15 @@ class DatabaseConnection:
             cursor.close()
 
             # convert results to BitcoinTimestamp objects and append to output
-            
+            # loop through all data
+            # get each part of the data and append to the ouput
 
+            for i, j in results: 
+                x = BitcoinTimestamp(i,j)
+                output.append(x)
+                
             return output
+
         except Error as e:
             print(e)
             return []
