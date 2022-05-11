@@ -13,8 +13,20 @@ import styles from "./CurrencyButton.module.css"
 function CurrencyButton ({currency,changeCurrency}) {
   // ToDo 10.1
   return (
-    <>
-    </>     
+    <div>
+        {/* 9.1 create a button component for button 1 <button></button> pass */
+          <button onClick={()=>changeCurrency("USD")} 
+          className={currency === 'USD' ? styles.currencyButtonActive : styles.currencyButtonDefault}>
+            USD
+          </button>
+          }
+        {/* 9.1 create a button component for button 1 <button></button> pass */
+          <button onClick={()=>changeCurrency("EUR")} 
+          className={currency === 'EUR' ? styles.currencyButtonActive : styles.currencyButtonDefault}>
+            EUR 
+          </button>
+          }
+    </div>         
   );
 
 }

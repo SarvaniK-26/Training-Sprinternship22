@@ -1,14 +1,28 @@
 .cardContainer {
+    background-color: black;
+
 }
 
 .priceContainerUp {
+    font-size: 16px;
+    color: rgb(13, 255, 0);
+
 }
 
 .priceContainerDown {
+    font-size: 16px;
+    color: rgb(255, 0, 0);
+
 }
 
 .priceContainerEqual {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+
 }
 
 .timeContainer {
+    font-size: 16px;
+    color:rgb(143, 124, 226);
+
 }

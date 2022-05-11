@@ -25,6 +25,20 @@ function TimeCurrencyCard ({currency,showData}) {
         CSS  Object
     */
     const priceColor = (index) => {
+        /* newest will be index + 1 and previous is index*/
+        if(index+1 == showData.length){
+            return styles.priceContainerEqual 
+        }
+        if(showData[index].price > showData[index+1].price){
+            /* set to green */
+            return styles.priceContainerUp
+        }
+        else if(showData[index].price < showData[index+1].price){
+            return styles.priceContainerDown
+        }
+        else{
+            return styles.priceContainerEqual
+        }
     }
 
     // ToDo 10.2.2
@@ -40,21 +54,33 @@ function TimeCurrencyCard ({currency,showData}) {
         string
     */
     const arrowSign = (index) => {
+        if(index+1 == showData.length){
+            return "-"
+        }
+        if(showData[index].price > showData[index+1].price){
+            return "↑"
+        }
+        else if(showData[index].price < showData[index+1].price){
+            return "↓" 
+        }
+        else{
+            return "-"
+        }
     }
     
     // ToDo 10.2.3
     return (
         <>
-        {/* reference for .map https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map */}
-            {showData.map((d, index) => (
-                <>
-                {/* use {currency === 'USD' ? "$" : *other currency sign*} to set the currency notation  
-                reference https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator */}
-                </>
-            ))} 
-        </>      
+          {showData.map((d, index) => (
+        <div className = {priceColor(index)}> 
+        <div className = {styles.cardContainer}>
+            {d.timestamp} {d.price}
+            {currency === 'USD' ? "$" : "€"}
+            {arrowSign(index)}  
+        </div>
+        </div>
+            ))}            
+        </>
     );
-
 }
-
 export default TimeCurrencyCard;

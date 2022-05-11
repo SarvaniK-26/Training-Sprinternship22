@@ -11,10 +11,11 @@ function Home () {
   const[message, setMessage] = useState("You Choose 1");
 
   //  excercise 9.3 update message when chosen change ( set dependecy to chosen) 
+  /* uncomment for excercise 9.3
   useEffect(() =>{
     setMessage(chosen === "Button 1" ? "You Choose 1" : "You Chose 2")
-  },[chosen])
-  
+  },[])
+  */
 
   // handle currency button onclick
   const changeChosen = (clickedButton) =>{

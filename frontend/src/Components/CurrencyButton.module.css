@@ -1,8 +1,12 @@
 .buttonContainer {
+    background-color: rgb(255, 244, 244);
 }
 
 .currencyButtonActive {
+    background-color: rgb(255, 255, 255);
 }
 
 .currencyButtonDefault {
+    background-color: rgb(255, 255, 255);
+
 }
