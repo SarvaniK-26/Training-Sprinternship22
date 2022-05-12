@@ -4,25 +4,43 @@
 }
 
 .priceContainerUp {
-    font-size: 16px;
-    color: rgb(13, 255, 0);
-
+    font-family: Andale Mono, monospace;;
+    text-align: center;
+    word-spacing: 10px;
+    margin: 0;
+    position: relative;
+    top: 100px;
+    left: 0px;
+    font-size: 20px;
+    color: rgb(72, 162, 72);
 }
 
 .priceContainerDown {
-    font-size: 16px;
-    color: rgb(255, 0, 0);
-
+    font-family: Andale Mono, monospace;;
+    text-align: center;
+    word-spacing: 10px;
+    margin: 0;
+    position: relative;
+    top: 100px;
+    left: 0px;
+    font-size: 20px;
+    color: rgb(224, 86, 86);
 }
 
 .priceContainerEqual {
-    font-size: 16px;
+    font-family: Andale Mono, monospace;;
+    text-align: center;
+    word-spacing: 10px;
+    margin: 0;
+    position: relative;
+    top: 100px;
+    left: 0px;
+    font-size: 20px;
     color: rgb(255, 255, 255);
 
 }
 
 .timeContainer {
-    font-size: 16px;
-    color:rgb(143, 124, 226);
 
 }
+

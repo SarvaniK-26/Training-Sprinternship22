@@ -84,14 +84,17 @@ function Home () {
   // ToDo 10.3.5
   // call CurrencyButton and TimeCurrencyCard pass the variables
   return (
-    <div className = {styles.cardContainer}>
-    <div className = {styles.timeContainer}>
-      <div>
-         <CurrencyButton currency = {currency} changeCurrency={changeCurrency}/>
-         <TimeCurrencyCard currency= {currency} showData = {showData}/>
+    <>
+      <div className = {styles.bodyContainer}>
+      <div className = {styles.bodyContainerMargin}>
+      <div className = {styles.bodyH1}>
+      <h1 div className = {styles.bodyh1}><center> BITCOIN PRICES </center></h1>
+      <CurrencyButton currency = {currency} changeCurrency={changeCurrency}/>
+      <TimeCurrencyCard currency= {currency} showData = {showData}/>
       </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 
 }

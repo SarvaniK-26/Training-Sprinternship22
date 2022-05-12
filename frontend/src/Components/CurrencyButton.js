@@ -16,13 +16,13 @@ function CurrencyButton ({currency,changeCurrency}) {
     <div>
         {/* 9.1 create a button component for button 1 <button></button> pass */
           <button onClick={()=>changeCurrency("USD")} 
-          className={currency === 'USD' ? styles.currencyButtonActive : styles.currencyButtonDefault}>
+          className={currency === 'USD' ? styles.currencyButtonActive : styles.currencyButtonActive}>
             USD
           </button>
           }
         {/* 9.1 create a button component for button 1 <button></button> pass */
           <button onClick={()=>changeCurrency("EUR")} 
-          className={currency === 'EUR' ? styles.currencyButtonActive : styles.currencyButtonDefault}>
+          className={currency === 'EUR' ? styles.currencyButtonDefault : styles.currencyButtonDefault}>
             EUR 
           </button>
           }
